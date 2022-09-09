@@ -1,0 +1,60 @@
+﻿@model FoundModeldopleCate
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Details";
+
+}
+
+<div class="form-group">
+    <span class="img-responsive border border-primary">
+        <img class="img-rounded img-responsive border border-primary" role="img" src="data:image/jpg;base64,@System.Convert.ToBase64String(Model.PhotoFound)" width="300" height="300" asp-append-version="true" />
+
+    </span>
+</div>
+<hr class="border border-top" />
+<div class="card-body">
+
+    <form method="get">
+        <div class="form-group">
+            <label asp-for="Location" class="control-label"></label>
+            <input asp-for="Location" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label"></label>
+            <input type="email" asp-for="EmailAddress" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" readonly class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label"></label>
+            <select asp-for="CategoryId" disabled readonly class="form-control" asp-items=" ViewBag.CategoryId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="StatuseId" class="control-label"></label>
+            <select asp-for="StatuseId" disabled readonly class="form-control" asp-items=" ViewBag.StatuseId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateFound" class="control-label"></label>
+            <input asp-for="DateFound" readonly class="form-control" />
+
+        </div>
+        @if (Model.FoundIs == true)
+        {
+            <div class="card-footer">
+                <a asp-action="Card" asp-controller="Post" class="btn btn-sm btn-dark" asp-route-id="@Model.Id">View Card Details</a>
+
+            </div>
+        }
+
+    </form>
+</div>

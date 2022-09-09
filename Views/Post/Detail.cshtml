@@ -1,0 +1,60 @@
+﻿@model LostModel
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Details";
+
+}
+
+<hr class="border border-top" />
+<div class="card-body">
+
+    <form method="get">
+        <div class="form-group">
+            <label asp-for="Location" class="control-label"></label>
+            <input asp-for="Location" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label"></label>
+            <input asp-for="EmailAddress" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="tip" class="control-label"></label>
+            <input asp-for="tip" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="LostDescription" class="control-label"></label>
+            <input asp-for="LostDescription" readonly class="form-control" />
+            <span asp-validation-for="LostDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CampusId" class="control-label"></label>
+            <select asp-for="CampusId" disabled readonly class="form-control" asp-items=" ViewBag.CampusId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryLostId" class="control-label"></label>
+            <select asp-for="CategoryLostId" disabled readonly class="form-control" asp-items=" ViewBag.CategoryLostId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="StatuseLostId" class="control-label"></label>
+            <select asp-for="StatuseLostId" disabled readonly class="form-control" asp-items=" ViewBag.StatuseLostId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="LostDate" class="control-label"></label>
+            <input asp-for="LostDate" readonly class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="DatePosted" class="control-label"></label>
+            <input asp-for="DatePosted" readonly class="form-control" />
+
+        </div>
+    </form>
+</div>

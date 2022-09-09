@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ClaimModel>
+@{
+    ViewData["Title"] = "Claims";
+    Layout = "__HomeLayout";
+}
+<div class="card-text text-center">
+    Admin
+</div>
+<hr />
+<h3 class="text-primary">Claims</h3>
+<br />
+
+
+@if (Model.Any())
+{
+
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+
+            <div class="card-header">
+                <h5> Name : @item.Name</h5>
+                <h5> Surname : @item.Surname</h5>
+            </div>
+            <div class="card-body">
+                <h5> Email : @item.EmailAddress</h5>
+                <h5>Phone: @item.PhoneNumber</h5>
+                <h5 class="alert alert-info">Staff/Student/ Identity No: @item.StudentStaffNo</h5>
+
+            </div>
+
+            <div class="card-footer">
+                <a asp-action="Details" asp-controller="Post" class="btn btn-sm btn-secondary" asp-route-id="@item.FoundId">Details</a>
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Claims Yet
+        </div>
+
+    </div>
+}

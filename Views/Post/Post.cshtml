@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "View Post";
+}
+<div class="card-header text-center">
+    View My Post
+</div>
+<div class="card align-content-center">
+    <div class="card-body">
+        <div class="card">
+            <form method="get" asp-controller="Post" asp-action="PostL">
+                <input type="submit" class="btn btn-sm btn-dark form-control" value="Lost" />
+            </form>
+        </div>
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        <div class="card">
+            <form method="get" asp-controller="Post" asp-action="PostF">
+                <input type="submit" class="form-control btn btn-sm btn-info" value="Found" />
+            </form>
+        </div>
+    </div>
+</div>

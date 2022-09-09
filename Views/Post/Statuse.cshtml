@@ -1,0 +1,34 @@
+﻿@model ClaimInsert
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Confirm Claim";
+}
+<h3 class="text-primary">Claims</h3>
+<hr />
+<br />
+<div class="alert alert-light">
+    @ViewBag.Added
+</div>
+<br />
+<form method="post" asp-action="Statuse">
+    <div class="card-body">
+        <div class="card-img">
+            <span class="img-responsive">
+                <img class="img-rounded img-responsive" role="img" src="data:image/jpg;base64,@System.Convert.ToBase64String(Model.photo)" width="200" height="200" asp-append-version="true" />
+            </span>
+        </div>
+        <input type="hidden" asp-for="FoundId" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="PersonId" class="control-label"></label>
+            <select asp-for="PersonId" class="form-control" asp-items=" ViewBag.PersonId">
+                
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" style="width:auto" value="Next" class="btn btn-primary">Assign</button>
+        </div>
+    </div>
+
+</form>

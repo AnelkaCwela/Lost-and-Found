@@ -1,0 +1,35 @@
+﻿@model BankCardModel
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Bank Card";
+}
+<h3 class="text-primary">Found Card Details</h3>
+<hr />
+<br />
+<div class="alert alert-light">
+    @ViewBag.Added
+</div>
+<br />
+<form method="post" asp-action="BankCard">
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="FoundId" />
+        <div class="form-group">
+            <label asp-for="Surname" class="control-label"></label>
+            <input asp-for="Surname" placeholder="Enter Surname" class="form-control" />
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="iniatials" class="control-label"></label>
+            <select asp-for="iniatials" class="form-control" asp-items="Html.GetEnumSelectList<IniatialModel>()">
+                <option value="">Select</option>
+            </select>
+            <span asp-validation-for="iniatials" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" style="width:auto" value="Next" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+</form>

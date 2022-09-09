@@ -1,0 +1,25 @@
+﻿@model StatuseLostModel
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Statuse";
+}
+<h3 class="card-header">Lost Statsue</h3>
+<br />
+<div class="card-title alert-heading">
+    @ViewBag.Added
+</div>
+<form method="post" asp-action="LostStatuse">
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="LostStatuse" class="control-label"></label>
+            <input asp-for="LostStatuse" placeholder="Enter Catergory" class="form-control" />
+            <span asp-validation-for="LostStatuse" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" style="width:auto" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+</form>

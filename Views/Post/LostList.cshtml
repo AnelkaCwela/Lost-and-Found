@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LostListViewModel>
+@{
+    ViewData["Title"] = "Lost Items";
+    Layout = "__HomeLayout";
+}
+
+<hr />
+<h3 class="text-primary">Lost Items</h3>
+<br />
+
+
+@if (Model.Any())
+{
+
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-text text-center">
+                Posted :@item.LostModel.DatePosted
+            </div>
+            <div class="card-header">
+                <h5> Description : @item.LostModel.LostDescription</h5>
+            </div>
+            <div class="card-body">
+                <h5> Category : @item.CategoryModel.CategoryLostName</h5>
+                <h5 class="alert alert-info">Price Tip: @item.LostModel.tip</h5>
+                <h5 class="alert alert-info">Lost Date: @item.LostModel.LostDate</h5>
+
+            </div>
+
+            <div class="card-footer">
+                <a asp-action="Detail" asp-controller="Post" class="btn btn-sm btn-dark" asp-route-id="@item.LostModel.LostId">More Info</a>
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Items yet Posted
+        </div>
+
+    </div>
+}

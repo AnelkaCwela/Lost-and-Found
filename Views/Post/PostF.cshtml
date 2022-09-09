@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FoundListViewModel>
+
+@{
+    ViewData["Title"] = "My Post";
+    Layout = "__HomeLayout";
+}
+<br />
+<h3 class="text-primary">My Found Items</h3>
+<hr />
+
+<br />
+@if (Model.Any())
+{
+
+    @foreach (var item in Model)
+    {
+<div class="card mb-3">
+    <div class="card-text text-center">
+        Posted :@item.FoundModel.DatePosted
+    </div>
+    <div class="card-img">
+        <span class="img-responsive">
+            <img class="img-rounded img-responsive" role="img" src="data:image/jpg;base64,@System.Convert.ToBase64String(item.FoundModel.PhotoFound)" width="200" height="200" asp-append-version="true" />
+        </span>
+    </div>
+    <div class="card-body">
+        <h5> Catergory : @item.CategoryModel.CategoryName</h5>
+
+        <h5> Date Found : @item.FoundModel.DateFound</h5>
+        <h5 class="alert alert-info">Description: @item.FoundModel.Description</h5>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Details" asp-controller="Post" class="btn btn-sm btn-info" asp-route-id="@item.FoundModel.FoundId">Details</a>
+        <a asp-action="Remove" asp-controller="Post" class="btn btn-sm btn-danger" asp-route-id="@item.FoundModel.FoundId">Remove</a>
+        <a asp-action="Claim" asp-controller="Post" class="btn btn-sm btn-secondary" asp-route-id="@item.FoundModel.FoundId">Claims</a>
+     
+    </div>
+
+</div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+       You Have no Items yet Posted
+        </div>
+
+    </div>
+}

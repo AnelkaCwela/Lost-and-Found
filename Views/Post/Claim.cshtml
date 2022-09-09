@@ -1,0 +1,49 @@
+﻿@model ClaimModel
+@{
+    Layout = "__HomeLayout";
+    ViewData["Title"] = "Claim Form";
+}
+<h3 class="text-primary">Claimer Form Details</h3>
+<hr />
+<br />
+<div class="alert alert-light">
+    @ViewBag.Added
+</div>
+<br />
+<form method="post" asp-action="Claim">
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="FoundId" />
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" placeholder="Enter Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Surname" class="control-label"></label>
+            <input asp-for="Surname" placeholder="Enter Surname" class="form-control" />
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StudentStaffNo" class="control-label"></label>
+            <input asp-for="StudentStaffNo" placeholder="Enter Staff/Student/Identity Number" class="form-control" />
+            <span asp-validation-for="StudentStaffNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" placeholder="Enter Phone Number" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label"></label>
+            <input asp-for="EmailAddress" placeholder="Enter Email Address" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" style="width:auto" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+</form>
